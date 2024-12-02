@@ -75,6 +75,9 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <None Include="README.md">
+      <Generator>ResXFileCodeGenerator</Generator>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
