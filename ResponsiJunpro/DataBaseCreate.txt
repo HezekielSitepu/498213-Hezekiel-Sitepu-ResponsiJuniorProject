@@ -1,0 +1,44 @@
+﻿CREATE DATABASE "Responsi"
+    WITH
+    OWNER = postgres
+    ENCODING = 'UTF8'
+    LOCALE_PROVIDER = 'libc'
+    CONNECTION LIMIT = -1
+    IS_TEMPLATE = False;
+
+CREATE TABLE public.departemen
+(
+    id_dep int,
+    nama_dep varchar(30),
+    PRIMARY KEY (id_dep)
+);
+
+ALTER TABLE IF EXISTS public.departemen
+    OWNER to postgres;
+
+CREATE TABLE public.karyawan
+(
+    id_karyawan char(6),
+    nama varchar(30),
+    id_dep int,
+    PRIMARY KEY (id_karyawan),
+    CONSTRAINT referenceid_dep FOREIGN KEY (id_dep)
+        REFERENCES public.departemen (id_dep) MATCH SIMPLE
+        ON UPDATE RESTRICT
+        ON DELETE RESTRICT
+        NOT VALID
+);
+
+ALTER TABLE IF EXISTS public.karyawan
+    OWNER to postgres;
+
+
+INSERT INTO departemen 
+(1, "Gramedia"),
+(2, "PT. Karya"),
+(3, "Dua Kelinci");
+
+INSERT INTO karyawan 
+(1, "Heze", 3),
+(2, "Zeki", 1),
+(3, "Kiel", 2);
